@@ -1,19 +1,14 @@
 import React from 'react';
 import FoodItemCard from './FoodItemCard/FoodItemCard';
-import "./FoodItems.css"
-
-interface Food {
-  name: string;
-  price: number;
-  image: string;
-}
+import './FoodItems.css';
+import { Food } from '../../lib/interfaces';
 
 interface Props {
   foods: Food[];
   addFoodItem: (name: string) => void;
 }
 
-const FoodItems: React.FC<Props> = ({foods, addFoodItem}) => {
+const FoodItems: React.FC<Props> = ({ foods, addFoodItem }) => {
   return (
     <div className="FoodItems col">
       <h2 className="FoodItemsTitle">Food items</h2>

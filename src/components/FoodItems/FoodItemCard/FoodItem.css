@@ -1,11 +1,23 @@
 .ItemCard {
   flex-basis: 40%;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid #b2a4a4;
   border-radius: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.ItemCard:hover {
+  background-color: rgba(210, 184, 184, 0.1);
+  transition: 0.2s;
+  border-color: rgba(210, 184, 184, 0.1);
+  box-shadow: 2px 2px 5px rgb(171, 163, 163);
+}
+
+.ItemCard:active {
+  transition: 0.3s;
+  border-color: #646cff;
 }
 
 .item-image {

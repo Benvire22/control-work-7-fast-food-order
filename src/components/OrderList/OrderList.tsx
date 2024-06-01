@@ -1,27 +1,22 @@
 import React from 'react';
 import OrderItem from './OrderItem/OrderItem';
-import "./OrderList.css";
-
-interface FoodState {
-  name: string;
-  count: number;
-}
+import './OrderList.css';
+import { FoodInfo } from '../../lib/interfaces';
 
 interface Props {
-  food: FoodState[];
-  getPrice: (item: FoodState) => number;
+  food: FoodInfo[];
+  getPrice: (item: FoodInfo) => number;
   removeFoodItem: (name: string) => void;
 }
 
-const OrderList: React.FC<Props> = ({food, getPrice, removeFoodItem}) => {
+const OrderList: React.FC<Props> = ({ food, getPrice, removeFoodItem }) => {
+  const getTotalPrice = () =>
+    food.reduce((acc, current) => {
+      return (acc += getPrice(current));
+    }, 0);
 
-  const getTotalPrice = () => food
-    .reduce((acc, current) => {
-      return acc += getPrice(current);
-  }, 0);
-
-  const orderList = (
-    food.map((item, index) => (
+  const orderList = food
+    .map((item, index) =>
       item.count > 0 ? (
         <OrderItem
           item={item}
@@ -29,9 +24,9 @@ const OrderList: React.FC<Props> = ({food, getPrice, removeFoodItem}) => {
           removeFoodItem={removeFoodItem}
           getPrice={getPrice}
         />
-      ) : null
-    )).filter(item => item !== null)
-  );
+      ) : null,
+    )
+    .filter((item) => item !== null);
 
   return (
     <div className="OrderList col">
@@ -42,10 +37,10 @@ const OrderList: React.FC<Props> = ({food, getPrice, removeFoodItem}) => {
           <div className="total-price">Total price: {getTotalPrice()} KGS</div>
         </>
       ) : (
-      <>
-        <h3>Order list is empty now...</h3>
-        <p>Add some item in list.</p>
-      </>
+        <>
+          <h3 className="orderSubtitle">Order list is empty now...</h3>
+          <p className="orderInfo">Add some item in list.</p>
+        </>
       )}
     </div>
   );

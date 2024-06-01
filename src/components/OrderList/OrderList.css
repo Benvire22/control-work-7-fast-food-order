@@ -3,7 +3,6 @@
   flex-direction: column;
   padding: 15px;
   flex-basis: 40%;
-
 }
 
 .total-price {
@@ -13,8 +12,21 @@
 }
 
 .orderTitle {
+  text-align: center;
   font-size: 34px;
   border-bottom: 1px solid black;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   margin: 0 0 20px;
+}
+
+.orderSubtitle {
+  font-size: 24px;
+  font-style: italic;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.orderInfo {
+  font-size: 20px;
+  text-align: center;
 }

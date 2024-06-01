@@ -1,9 +1,15 @@
 .OrderItem {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-align: left;
   border-bottom: 2px dotted #e4e4e4;
+}
+
+.OrderItem:hover {
+  transition: 0.2s;
+  background: #f4eeee;
+  border-radius: 5px;
 }
 
 .OrderName,
@@ -19,5 +25,6 @@
   height: 20px;
   display: inline-block;
   border: none;
-  background: url("../../../assets/icons/ic-cross.svg") center / 50px no-repeat transparent;
+  background: url('../../../assets/icons/ic-cross.svg') center / 50px no-repeat
+    transparent;
 }

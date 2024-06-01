@@ -3,6 +3,7 @@
 }
 
 .FoodItemsTitle {
+  text-align: center;
   font-size: 34px;
   border-bottom: 1px solid black;
   padding-bottom: 20px;
