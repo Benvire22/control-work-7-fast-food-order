@@ -1,0 +1,23 @@
+.OrderItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  text-align: left;
+  border-bottom: 2px dotted #e4e4e4;
+}
+
+.OrderName,
+.OrderPrice,
+.OrderCount {
+  flex-basis: 25%;
+}
+
+.removeBtn {
+  cursor: pointer;
+  margin-top: 2px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: none;
+  background: url("../../../assets/icons/ic-cross.svg") center / 50px no-repeat transparent;
+}

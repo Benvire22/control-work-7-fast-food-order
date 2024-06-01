@@ -1,4 +1,5 @@
 import React from 'react';
+import "./OrderItem.css";
 
 interface FoodState {
   name: string;
@@ -14,10 +15,10 @@ interface Props {
 const OrderItem: React.FC<Props> = ({item, getPrice, removeFoodItem}) => {
   return (
     <div className="OrderItem">
-      <span>{item.name}</span>
-      <strong> x{item.count}</strong>
-      <span> {getPrice(item)} KGS</span>
-      <button onClick={() => removeFoodItem(item.name)}>remove</button>
+      <span className="OrderName">{item.name}</span>
+      <strong className="OrderCount"> x{item.count}</strong>
+      <span className="OrderPrice"> {getPrice(item)} KGS</span>
+      <button className="removeBtn" onClick={() => removeFoodItem(item.name)}></button>
     </div>
   );
 };

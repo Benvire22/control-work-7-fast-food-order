@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderItem from './OrderItem/OrderItem';
+import "./OrderList.css";
 
 interface FoodState {
   name: string;
@@ -34,10 +35,11 @@ const OrderList: React.FC<Props> = ({food, getPrice, removeFoodItem}) => {
 
   return (
     <div className="OrderList col">
+      <h2 className="orderTitle">Order Details:</h2>
       {orderList.length > 0 ? (
         <>
           {orderList}
-          <div>Total price: {getTotalPrice()} KGS</div>
+          <div className="total-price">Total price: {getTotalPrice()} KGS</div>
         </>
       ) : (
       <>
