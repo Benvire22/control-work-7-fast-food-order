@@ -6,6 +6,7 @@ import Fries from "./assets/icons/ic-fries.svg";
 import Coffee from "./assets/icons/ic-coffee.svg";
 import Tea from "./assets/icons/ic-tea.svg";
 import Cola from "./assets/icons/ic-cola.svg";
+import OrderList from './components/OrderList/OrderList';
 
 interface Food {
   name: string;
@@ -50,11 +51,6 @@ const App = () => {
       return total;
   };
 
-  const getTotalPrice = () => food
-    .reduce((acc, current) => {
-      return acc += getPrice(current);
-  }, 0);
-
   const removeFoodItem = (name: string) => {
     setFood((prevFood) => {
         return prevFood.map((food) => {
@@ -85,30 +81,13 @@ const App = () => {
     });
   };
 
-  const orderList = (
-    food.map((item, index) => (
-      item.count > 0 ? (
-        <div className="OrderItem" key={index + item.count + item.name}>
-          <span>{item.name}</span>
-          <strong> x{item.count}</strong>
-          <span> {getPrice(item)} KGS</span>
-          <button onClick={() => removeFoodItem(item.name)}>remove</button>
-        </div>
-      ) : null
-    )).filter(item => item !== null)
-  )
-
   return (
       <div className="App">
-        <div className="OrderList col">
-          {orderList.length > 0 ? (
-            <>
-              {orderList}
-              <div>Total price: {getTotalPrice()} KGS</div>
-            </>
-          ) : <><h3>Order list empty now</h3><p>Add some item in list</p></>}
-
-        </div>
+        <OrderList
+          food={food}
+          getPrice={getPrice}
+          removeFoodItem={removeFoodItem}
+        />
         <div className="FoodItems col">
           {FOODS.map((item) => (
             <div key={item.name} className="ItemCard" onClick={() => addFoodItem(item.name)}>
