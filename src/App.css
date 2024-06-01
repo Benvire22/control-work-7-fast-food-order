@@ -4,3 +4,27 @@
   padding: 2rem;
   text-align: center;
 }
+
+.App {
+  display: flex;
+}
+
+.col {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.FoodItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.ItemCard {
+  flex-basis: 40%;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 40px;
+  cursor: pointer;
+}
