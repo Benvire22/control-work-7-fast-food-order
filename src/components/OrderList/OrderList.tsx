@@ -43,8 +43,8 @@ const OrderList: React.FC<Props> = ({food, getPrice, removeFoodItem}) => {
         </>
       ) : (
       <>
-        <h3>Order list empty now</h3>
-        <p>Add some item in list</p>
+        <h3>Order list is empty now...</h3>
+        <p>Add some item in list.</p>
       </>
       )}
     </div>

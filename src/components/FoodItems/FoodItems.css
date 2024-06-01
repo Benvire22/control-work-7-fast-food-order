@@ -1,0 +1,17 @@
+.FoodItems {
+  flex-basis: 60%;
+}
+
+.FoodItemsTitle {
+  font-size: 34px;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin: 0 0 20px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

@@ -7,6 +7,7 @@ import Coffee from "./assets/icons/ic-coffee.svg";
 import Tea from "./assets/icons/ic-tea.svg";
 import Cola from "./assets/icons/ic-cola.svg";
 import OrderList from './components/OrderList/OrderList';
+import FoodItems from './components/FoodItems/FoodItems';
 
 interface Food {
   name: string;
@@ -88,17 +89,10 @@ const App = () => {
           getPrice={getPrice}
           removeFoodItem={removeFoodItem}
         />
-        <div className="FoodItems col">
-          {FOODS.map((item) => (
-            <div key={item.name} className="ItemCard" onClick={() => addFoodItem(item.name)}>
-              <img className="item-image" src={item.image} alt={item.name}/>
-              <p>
-                <span>{item.name}</span>
-                <strong>Price: {item.price} KGS</strong>
-              </p>
-            </div>
-          ))}
-        </div>
+        <FoodItems
+          foods={FOODS}
+          addFoodItem={addFoodItem}
+        />
       </div>
   );
 };
