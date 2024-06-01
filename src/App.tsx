@@ -29,7 +29,7 @@ const FOODS: Food[] = [
 
 
 const App = () => {
-  const [food, setFood] = useState([
+  const [food, setFood] = useState<FoodState[]>([
     {name: 'Hamburger', count: 0},
     {name: 'Cheeseburger', count: 0},
     {name: 'Fries', count: 0},
@@ -49,6 +49,11 @@ const App = () => {
 
       return total;
   };
+
+  const getTotalPrice = () => food
+    .reduce((acc, current) => {
+      return acc += getPrice(current);
+  }, 0);
 
   const removeFoodItem = (name: string) => {
     setFood((prevFood) => {
@@ -96,7 +101,13 @@ const App = () => {
   return (
       <div className="App">
         <div className="OrderList col">
-          {orderList.length > 0 ? orderList : <><h3>Order list empty now</h3><p>Add some item in list</p></>}
+          {orderList.length > 0 ? (
+            <>
+              {orderList}
+              <div>Total price: {getTotalPrice()} KGS</div>
+            </>
+          ) : <><h3>Order list empty now</h3><p>Add some item in list</p></>}
+
         </div>
         <div className="FoodItems col">
           {FOODS.map((item) => (
